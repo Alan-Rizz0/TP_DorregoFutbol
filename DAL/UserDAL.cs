@@ -1,4 +1,5 @@
-﻿using BE;
+﻿
+using Servicios_Seguridad;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +16,7 @@ namespace DAL
         Connection cn = new Connection();
         Mapper mapper = new Mapper();
 
-        public UserBE SelectByUsername(string username)
+        public UserService SelectByUsername(string username)
         {
             SqlParameter[] parameters = new SqlParameter[]
            {

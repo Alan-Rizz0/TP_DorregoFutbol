@@ -41,14 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="Mapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDAL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BE\BE.csproj">
-      <Project>{0e002a7f-bc14-4c86-9679-21483c81f847}</Project>
-      <Name>BE</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Servicios_Seguridad\Servicios_Seguridad.csproj">
       <Project>{d06fe033-8bf5-432d-a557-38e3a84efbfe}</Project>
       <Name>Servicios_Seguridad</Name>

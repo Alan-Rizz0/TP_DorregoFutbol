@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE
+namespace Servicios_Seguridad
 {
-    public class UserBE
+    public class UserService
     {
         public int ID { get; set; }
         public string Username { get; set; }

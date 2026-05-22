@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BE;
+
 
 namespace Servicios_Seguridad
 {
@@ -12,12 +12,12 @@ namespace Servicios_Seguridad
         private static object _lock = new object(); 
         private static SessionManager _session;
 
-        public UserBE Usuario { get; set; }
+        public UserService Usuario { get; set; }
         public DateTime FechaInicio { get; set; }
 
         private SessionManager() { }
 
-        public static SessionManager GetInstance
+        public static SessionManager GetInstance //para obtener la instancia en cualquier lado
         {
             get
             {
@@ -27,7 +27,7 @@ namespace Servicios_Seguridad
         }
 
 
-        public static void Login(UserBE usuario)
+        public static void Login(UserService usuario)
         {
             lock (_lock)
             {
@@ -44,7 +44,7 @@ namespace Servicios_Seguridad
             }
         }
 
-        public static void Logout(UserBE usuario)
+        public static void Logout(UserService usuario)
         {
             lock (_lock)
             {

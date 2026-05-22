@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Tp_Dorrego_Futbol
 {
     public partial class Log_in : Form
     {
+        UserBLL userBll = new UserBLL();
         public Log_in()
         {
             InitializeComponent();
@@ -58,10 +60,13 @@ namespace Tp_Dorrego_Futbol
 
         private void txtContraseña_logIn_Leave(object sender, EventArgs e)
         {
-            
-            txtContraseña_logIn.ForeColor = System.Drawing.Color.Gray;
-            txtContraseña_logIn.Text = "Contraseña";
-            txtContraseña_logIn.PasswordChar = ' ';
+
+            if (string.IsNullOrWhiteSpace(txtContraseña_logIn.Text))
+            {
+                txtContraseña_logIn.Text = "Contraseña";
+                txtContraseña_logIn.ForeColor = System.Drawing.Color.Gray;
+                txtContraseña_logIn.PasswordChar = '\0'; 
+            }
 
         }
 
@@ -77,8 +82,11 @@ namespace Tp_Dorrego_Futbol
 
         private void txtNombre_LogIn_Leave(object sender, EventArgs e)
         {
-            txtNombre_LogIn.ForeColor = System.Drawing.Color.Gray;
-            txtNombre_LogIn.Text = "Nombre";
+            if (string.IsNullOrWhiteSpace(txtNombre_LogIn.Text))
+            {
+                txtNombre_LogIn.Text = "Nombre";
+                txtNombre_LogIn.ForeColor = System.Drawing.Color.Gray;
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -96,6 +104,42 @@ namespace Tp_Dorrego_Futbol
             {
                 ReleaseCapture();
                 SendMessage(this.Handle, 0x112, 0xf012, 0);
+            }
+        }
+
+        private void boton_Log_in_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre_LogIn.Text) || string.IsNullOrWhiteSpace(txtContraseña_logIn.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+
+                // Llamamos a la lógica de negocio
+                if (userBll.Login(txtNombre_LogIn.Text, txtContraseña_logIn.Text))
+                {
+                    // Si el login es exitoso
+                    MessageBox.Show("¡Bienvenido al sistema!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Hide(); // Ocultamos el login
+
+                    // Abrimos el formulario principal
+                    Menu_Principal principal = new Menu_Principal();
+                    principal.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Aquí capturamos los mensajes que lanzamos en la BLL 
+                // ("El usuario no existe", "Contraseña incorrecta", etc.)
+                MessageBox.Show(ex.Message, "Error de Autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Opcional: Limpiar el campo de contraseña si falló
+                txtContraseña_logIn.Clear();
+                txtContraseña_logIn.Focus();
             }
         }
     }
