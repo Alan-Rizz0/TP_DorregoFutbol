@@ -63,6 +63,26 @@ namespace Tp_Dorrego_Futbol.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap admin_logo_convertido_a_35x35 {
+            get {
+                object obj = ResourceManager.GetObject("admin logo-convertido-a-35x35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap administracion_convertido_a_35x35 {
+            get {
+                object obj = ResourceManager.GetObject("administracion-convertido-a-35x35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap agrandar {
             get {
                 object obj = ResourceManager.GetObject("agrandar", resourceCulture);
@@ -86,6 +106,46 @@ namespace Tp_Dorrego_Futbol.Properties {
         internal static System.Drawing.Bitmap iconoorr {
             get {
                 object obj = ResourceManager.GetObject("iconoorr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconoUsuario {
+            get {
+                object obj = ResourceManager.GetObject("IconoUsuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconoUsuario_Chica {
+            get {
+                object obj = ResourceManager.GetObject("IconoUsuario_Chica", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconoUsuario_convertido_a_26x26 {
+            get {
+                object obj = ResourceManager.GetObject("IconoUsuario-convertido-a-26x26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconoUsuario_convertido_a_35x35 {
+            get {
+                object obj = ResourceManager.GetObject("IconoUsuario-convertido-a-35x35", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cambiar_Contraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cambiar_Contraseña.Designer.cs">
+      <DependentUpon>Cambiar_Contraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log_in.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Cambiar_Contraseña.resx">
+      <DependentUpon>Cambiar_Contraseña.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Log_in.resx">
       <DependentUpon>Log_in.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +131,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\normalizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoUsuario.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoUsuario_Chica.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoUsuario-convertido-a-26x26.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoUsuario-convertido-a-35x35.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

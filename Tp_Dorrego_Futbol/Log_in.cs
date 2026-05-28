@@ -122,7 +122,7 @@ namespace Tp_Dorrego_Futbol
                 if (userBll.Login(txtNombre_LogIn.Text, txtContraseña_logIn.Text))
                 {
                     // Si el login es exitoso
-                    MessageBox.Show("¡Bienvenido al sistema!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"¡Bienvenido al sistema {txtNombre_LogIn.Text}!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Hide(); // Ocultamos el login
 
