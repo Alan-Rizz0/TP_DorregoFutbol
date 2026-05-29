@@ -10,7 +10,7 @@ namespace Servicios_Seguridad
     public class SessionManager
     {
         private static object _lock = new object(); 
-        private static SessionManager _session;
+        private static SessionManager instance;
 
         public UserService Usuario { get; set; }
         public DateTime FechaInicio { get; set; }
@@ -21,8 +21,8 @@ namespace Servicios_Seguridad
         {
             get
             {
-                if (_session == null) throw new Exception("Sesión no iniciada");
-                return _session;
+                if (instance == null) throw new Exception("Sesión no iniciada");
+                return instance;
             }
         }
 
@@ -31,11 +31,11 @@ namespace Servicios_Seguridad
         {
             lock (_lock)
             {
-                if (_session == null)
+                if (instance == null)
                 {
-                    _session = new SessionManager();
-                    _session.Usuario = usuario;
-                    _session.FechaInicio = DateTime.Now;
+                    instance = new SessionManager();
+                    instance.Usuario = usuario;
+                    instance.FechaInicio = DateTime.Now;
                 }
                 else
                 {
@@ -44,13 +44,13 @@ namespace Servicios_Seguridad
             }
         }
 
-        public static void Logout(UserService usuario)
+        public static void Logout()
         {
             lock (_lock)
             {
-                if (_session != null)
+                if (instance != null)
                 {
-                    _session = null;
+                    instance = null;
                 }
                 else
                 {
@@ -59,9 +59,6 @@ namespace Servicios_Seguridad
             }
         }
 
-        public static bool IsLoggedIn()
-        {
-            return _session != null;
-        }
+      
     }
 }

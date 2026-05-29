@@ -32,5 +32,16 @@ namespace DAL
             }
             return null;
         }
+
+        public bool UpdatePassword(int IDUsuario, string NewHash)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@iD", IDUsuario),
+                new SqlParameter("@Password", NewHash)
+            };
+
+            return cn.Write("SPUpdatePassword", parameters);
+        }
     }
 }

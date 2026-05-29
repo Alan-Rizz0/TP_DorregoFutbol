@@ -111,33 +111,27 @@ namespace Tp_Dorrego_Futbol
         {
             if (string.IsNullOrWhiteSpace(txtNombre_LogIn.Text) || string.IsNullOrWhiteSpace(txtContraseña_logIn.Text))
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete todos los campos", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
 
-                // Llamamos a la lógica de negocio
                 if (userBll.Login(txtNombre_LogIn.Text, txtContraseña_logIn.Text))
                 {
-                    // Si el login es exitoso
-                    MessageBox.Show($"¡Bienvenido al sistema {txtNombre_LogIn.Text}!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Bienvenido al sistema " + txtNombre_LogIn.Text, "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    this.Hide(); // Ocultamos el login
-
-                    // Abrimos el formulario principal
+                    this.Hide(); 
                     Menu_Principal principal = new Menu_Principal();
                     principal.Show();
                 }
             }
             catch (Exception ex)
             {
-                // Aquí capturamos los mensajes que lanzamos en la BLL 
-                // ("El usuario no existe", "Contraseña incorrecta", etc.)
+                
                 MessageBox.Show(ex.Message, "Error de Autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // Opcional: Limpiar el campo de contraseña si falló
                 txtContraseña_logIn.Clear();
                 txtContraseña_logIn.Focus();
             }

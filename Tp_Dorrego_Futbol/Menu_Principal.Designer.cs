@@ -30,34 +30,34 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_Principal));
             this.panel_Menu = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Menu_vertical = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel_Contenedor = new System.Windows.Forms.Panel();
-            this.Contenedor_Usuario = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Boton_Logout = new System.Windows.Forms.Button();
-            this.btn_CambiarContraseña = new System.Windows.Forms.Button();
-            this.Contenedor_Administracion = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.resaturar_icono = new System.Windows.Forms.PictureBox();
             this.Icono_Maximizar = new System.Windows.Forms.PictureBox();
             this.Icono_Cerrar = new System.Windows.Forms.PictureBox();
             this.Icono_Minimizar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_Administracion = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Menu_vertical = new System.Windows.Forms.FlowLayoutPanel();
             this.Foto_Dorrego = new System.Windows.Forms.PictureBox();
+            this.Contenedor_Usuario = new System.Windows.Forms.Panel();
             this.Usuario_boton = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_CambiarContraseña = new System.Windows.Forms.Button();
+            this.Boton_Logout = new System.Windows.Forms.Button();
+            this.Contenedor_Administracion = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Administracion = new System.Windows.Forms.Button();
+            this.panel_Contenedor = new System.Windows.Forms.Panel();
             this.panel_Menu.SuspendLayout();
-            this.Menu_vertical.SuspendLayout();
-            this.Contenedor_Usuario.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.Contenedor_Administracion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resaturar_icono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Menu_vertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Foto_Dorrego)).BeginInit();
+            this.Contenedor_Usuario.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.Contenedor_Administracion.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_Menu
@@ -75,119 +75,6 @@
             this.panel_Menu.Size = new System.Drawing.Size(1320, 50);
             this.panel_Menu.TabIndex = 0;
             this.panel_Menu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Menu_MouseDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Menú";
-            // 
-            // Menu_vertical
-            // 
-            this.Menu_vertical.BackColor = System.Drawing.Color.Black;
-            this.Menu_vertical.Controls.Add(this.Foto_Dorrego);
-            this.Menu_vertical.Controls.Add(this.Contenedor_Usuario);
-            this.Menu_vertical.Controls.Add(this.Contenedor_Administracion);
-            this.Menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Menu_vertical.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Menu_vertical.Location = new System.Drawing.Point(0, 0);
-            this.Menu_vertical.Name = "Menu_vertical";
-            this.Menu_vertical.Size = new System.Drawing.Size(250, 748);
-            this.Menu_vertical.TabIndex = 1;
-            this.Menu_vertical.Paint += new System.Windows.Forms.PaintEventHandler(this.Menu_vertical_Paint);
-            // 
-            // panel_Contenedor
-            // 
-            this.panel_Contenedor.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel_Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Contenedor.Location = new System.Drawing.Point(250, 0);
-            this.panel_Contenedor.Name = "panel_Contenedor";
-            this.panel_Contenedor.Size = new System.Drawing.Size(1320, 748);
-            this.panel_Contenedor.TabIndex = 2;
-            this.panel_Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Contenedor_Paint);
-            // 
-            // Contenedor_Usuario
-            // 
-            this.Contenedor_Usuario.Controls.Add(this.Usuario_boton);
-            this.Contenedor_Usuario.Controls.Add(this.panel2);
-            this.Contenedor_Usuario.Location = new System.Drawing.Point(3, 85);
-            this.Contenedor_Usuario.Name = "Contenedor_Usuario";
-            this.Contenedor_Usuario.Size = new System.Drawing.Size(250, 55);
-            this.Contenedor_Usuario.TabIndex = 5;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btn_CambiarContraseña);
-            this.panel2.Controls.Add(this.Boton_Logout);
-            this.panel2.Location = new System.Drawing.Point(1, 56);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(247, 96);
-            this.panel2.TabIndex = 0;
-            // 
-            // Boton_Logout
-            // 
-            this.Boton_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Boton_Logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Boton_Logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Boton_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Boton_Logout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Boton_Logout.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Boton_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Boton_Logout.Location = new System.Drawing.Point(0, 0);
-            this.Boton_Logout.Name = "Boton_Logout";
-            this.Boton_Logout.Size = new System.Drawing.Size(246, 44);
-            this.Boton_Logout.TabIndex = 2;
-            this.Boton_Logout.Text = "Cerrar Sesión";
-            this.Boton_Logout.UseVisualStyleBackColor = false;
-            // 
-            // btn_CambiarContraseña
-            // 
-            this.btn_CambiarContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_CambiarContraseña.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_CambiarContraseña.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_CambiarContraseña.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_CambiarContraseña.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CambiarContraseña.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_CambiarContraseña.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CambiarContraseña.Location = new System.Drawing.Point(0, 44);
-            this.btn_CambiarContraseña.Name = "btn_CambiarContraseña";
-            this.btn_CambiarContraseña.Size = new System.Drawing.Size(246, 46);
-            this.btn_CambiarContraseña.TabIndex = 9;
-            this.btn_CambiarContraseña.Text = "          Cambiar Contraseña";
-            this.btn_CambiarContraseña.UseVisualStyleBackColor = false;
-            this.btn_CambiarContraseña.Click += new System.EventHandler(this.btn_CambiarContraseña_Click);
-            // 
-            // Contenedor_Administracion
-            // 
-            this.Contenedor_Administracion.Controls.Add(this.button1);
-            this.Contenedor_Administracion.Controls.Add(this.btn_Administracion);
-            this.Contenedor_Administracion.Location = new System.Drawing.Point(3, 146);
-            this.Contenedor_Administracion.MaximumSize = new System.Drawing.Size(249, 100);
-            this.Contenedor_Administracion.MinimumSize = new System.Drawing.Size(249, 54);
-            this.Contenedor_Administracion.Name = "Contenedor_Administracion";
-            this.Contenedor_Administracion.Size = new System.Drawing.Size(249, 100);
-            this.Contenedor_Administracion.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-1, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(246, 44);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Usuarios";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // resaturar_icono
             // 
@@ -253,6 +140,138 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(58, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Menú";
+            // 
+            // Menu_vertical
+            // 
+            this.Menu_vertical.BackColor = System.Drawing.Color.Black;
+            this.Menu_vertical.Controls.Add(this.Foto_Dorrego);
+            this.Menu_vertical.Controls.Add(this.Contenedor_Usuario);
+            this.Menu_vertical.Controls.Add(this.Contenedor_Administracion);
+            this.Menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Menu_vertical.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Menu_vertical.Location = new System.Drawing.Point(0, 0);
+            this.Menu_vertical.Name = "Menu_vertical";
+            this.Menu_vertical.Size = new System.Drawing.Size(250, 748);
+            this.Menu_vertical.TabIndex = 1;
+            this.Menu_vertical.Paint += new System.Windows.Forms.PaintEventHandler(this.Menu_vertical_Paint);
+            // 
+            // Foto_Dorrego
+            // 
+            this.Foto_Dorrego.Image = ((System.Drawing.Image)(resources.GetObject("Foto_Dorrego.Image")));
+            this.Foto_Dorrego.Location = new System.Drawing.Point(3, 3);
+            this.Foto_Dorrego.Name = "Foto_Dorrego";
+            this.Foto_Dorrego.Size = new System.Drawing.Size(247, 76);
+            this.Foto_Dorrego.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Foto_Dorrego.TabIndex = 4;
+            this.Foto_Dorrego.TabStop = false;
+            // 
+            // Contenedor_Usuario
+            // 
+            this.Contenedor_Usuario.Controls.Add(this.Usuario_boton);
+            this.Contenedor_Usuario.Controls.Add(this.panel2);
+            this.Contenedor_Usuario.Location = new System.Drawing.Point(3, 85);
+            this.Contenedor_Usuario.Name = "Contenedor_Usuario";
+            this.Contenedor_Usuario.Size = new System.Drawing.Size(250, 157);
+            this.Contenedor_Usuario.TabIndex = 5;
+            // 
+            // Usuario_boton
+            // 
+            this.Usuario_boton.BackColor = System.Drawing.Color.Black;
+            this.Usuario_boton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Usuario_boton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Usuario_boton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Usuario_boton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Usuario_boton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Usuario_boton.Image = global::Tp_Dorrego_Futbol.Properties.Resources.IconoUsuario_convertido_a_35x35;
+            this.Usuario_boton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Usuario_boton.Location = new System.Drawing.Point(0, 3);
+            this.Usuario_boton.Name = "Usuario_boton";
+            this.Usuario_boton.Size = new System.Drawing.Size(248, 55);
+            this.Usuario_boton.TabIndex = 2;
+            this.Usuario_boton.Text = "Usuario";
+            this.Usuario_boton.UseVisualStyleBackColor = false;
+            this.Usuario_boton.Click += new System.EventHandler(this.Administración_boton_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btn_CambiarContraseña);
+            this.panel2.Controls.Add(this.Boton_Logout);
+            this.panel2.Location = new System.Drawing.Point(1, 56);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(247, 96);
+            this.panel2.TabIndex = 0;
+            // 
+            // btn_CambiarContraseña
+            // 
+            this.btn_CambiarContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_CambiarContraseña.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_CambiarContraseña.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_CambiarContraseña.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_CambiarContraseña.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CambiarContraseña.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_CambiarContraseña.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_CambiarContraseña.Location = new System.Drawing.Point(0, 44);
+            this.btn_CambiarContraseña.Name = "btn_CambiarContraseña";
+            this.btn_CambiarContraseña.Size = new System.Drawing.Size(246, 46);
+            this.btn_CambiarContraseña.TabIndex = 9;
+            this.btn_CambiarContraseña.Text = "          Cambiar Contraseña";
+            this.btn_CambiarContraseña.UseVisualStyleBackColor = false;
+            this.btn_CambiarContraseña.Click += new System.EventHandler(this.btn_CambiarContraseña_Click);
+            // 
+            // Boton_Logout
+            // 
+            this.Boton_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Boton_Logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Boton_Logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Boton_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Boton_Logout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Boton_Logout.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Boton_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Boton_Logout.Location = new System.Drawing.Point(0, 0);
+            this.Boton_Logout.Name = "Boton_Logout";
+            this.Boton_Logout.Size = new System.Drawing.Size(246, 44);
+            this.Boton_Logout.TabIndex = 2;
+            this.Boton_Logout.Text = "Cerrar Sesión";
+            this.Boton_Logout.UseVisualStyleBackColor = false;
+            this.Boton_Logout.Click += new System.EventHandler(this.Boton_Logout_Click);
+            // 
+            // Contenedor_Administracion
+            // 
+            this.Contenedor_Administracion.Controls.Add(this.button1);
+            this.Contenedor_Administracion.Controls.Add(this.btn_Administracion);
+            this.Contenedor_Administracion.Location = new System.Drawing.Point(3, 248);
+            this.Contenedor_Administracion.MaximumSize = new System.Drawing.Size(249, 100);
+            this.Contenedor_Administracion.MinimumSize = new System.Drawing.Size(249, 54);
+            this.Contenedor_Administracion.Name = "Contenedor_Administracion";
+            this.Contenedor_Administracion.Size = new System.Drawing.Size(249, 100);
+            this.Contenedor_Administracion.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(-1, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(246, 44);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Usuarios";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btn_Administracion
             // 
             this.btn_Administracion.BackColor = System.Drawing.Color.Black;
@@ -271,33 +290,15 @@
             this.btn_Administracion.UseVisualStyleBackColor = false;
             this.btn_Administracion.Click += new System.EventHandler(this.btn_Administracion_Click);
             // 
-            // Foto_Dorrego
+            // panel_Contenedor
             // 
-            this.Foto_Dorrego.Image = ((System.Drawing.Image)(resources.GetObject("Foto_Dorrego.Image")));
-            this.Foto_Dorrego.Location = new System.Drawing.Point(3, 3);
-            this.Foto_Dorrego.Name = "Foto_Dorrego";
-            this.Foto_Dorrego.Size = new System.Drawing.Size(247, 76);
-            this.Foto_Dorrego.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Foto_Dorrego.TabIndex = 4;
-            this.Foto_Dorrego.TabStop = false;
-            // 
-            // Usuario_boton
-            // 
-            this.Usuario_boton.BackColor = System.Drawing.Color.Black;
-            this.Usuario_boton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Usuario_boton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Usuario_boton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Usuario_boton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Usuario_boton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Usuario_boton.Image = global::Tp_Dorrego_Futbol.Properties.Resources.IconoUsuario_convertido_a_35x35;
-            this.Usuario_boton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Usuario_boton.Location = new System.Drawing.Point(0, 3);
-            this.Usuario_boton.Name = "Usuario_boton";
-            this.Usuario_boton.Size = new System.Drawing.Size(248, 52);
-            this.Usuario_boton.TabIndex = 2;
-            this.Usuario_boton.Text = "Usuario";
-            this.Usuario_boton.UseVisualStyleBackColor = false;
-            this.Usuario_boton.Click += new System.EventHandler(this.Administración_boton_Click);
+            this.panel_Contenedor.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel_Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Contenedor.Location = new System.Drawing.Point(250, 0);
+            this.panel_Contenedor.Name = "panel_Contenedor";
+            this.panel_Contenedor.Size = new System.Drawing.Size(1320, 748);
+            this.panel_Contenedor.TabIndex = 2;
+            this.panel_Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Contenedor_Paint);
             // 
             // Menu_Principal
             // 
@@ -314,16 +315,16 @@
             this.Load += new System.EventHandler(this.Menu_Principal_Load);
             this.panel_Menu.ResumeLayout(false);
             this.panel_Menu.PerformLayout();
-            this.Menu_vertical.ResumeLayout(false);
-            this.Contenedor_Usuario.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.Contenedor_Administracion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.resaturar_icono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Maximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Cerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Menu_vertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Foto_Dorrego)).EndInit();
+            this.Contenedor_Usuario.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.Contenedor_Administracion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

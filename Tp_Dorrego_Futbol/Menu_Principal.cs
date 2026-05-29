@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicios_Seguridad;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -124,6 +125,31 @@ namespace Tp_Dorrego_Futbol
         private void button1_Click(object sender, EventArgs e)
         {
            // AbrirFormHijo(new Usuarios);
+        }
+
+        private void Boton_Logout_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿quiere cerrar la sesion?", "Confirmar Salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+
+                try
+                {
+                    SessionManager.Logout();
+                    MessageBox.Show("Sesion cerrada correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Log_in login = new Log_in();
+                    login.Show();
+                    this.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
+            }
+           
         }
     }
 }

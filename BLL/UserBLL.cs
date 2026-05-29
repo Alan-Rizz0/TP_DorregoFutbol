@@ -10,11 +10,11 @@ namespace BLL
 {
     public class UserBLL
     {
-        private readonly UserDAL dataAccess = new UserDAL();
+        private readonly UserDAL userDAL = new UserDAL();
 
         public bool Login(string username, string password)
         {
-            UserService user = dataAccess.SelectByUsername(username);
+            UserService user = userDAL.SelectByUsername(username);
 
             if (user == null) throw new Exception("El usuario no existe. ");
 
@@ -32,6 +32,29 @@ namespace BLL
             {
                 throw new Exception("La contraseña es incorrecta. ");
             }
+        }
+
+        public bool CambiarClave(UserService usuarioLogueado, string passActual, string passNueva, string passRepetida)
+        {
+            if (passNueva != passRepetida)
+            {
+                throw new Exception("Las nuevas contraseñas no coinciden.");
+            }
+
+            if (passNueva.Length < 8)
+            {
+                throw new Exception("La clave debe tener mínimo 8 caracteres.");
+            }
+
+            string hashActualIngresado = CryptoManager.EncryptString(passActual);
+            if (usuarioLogueado.Password != hashActualIngresado)
+            {
+                throw new Exception("Contraseña actual errónea.");
+            }
+
+            string nuevoHash = CryptoManager.EncryptString(passNueva);
+
+            return userDAL.UpdatePassword(usuarioLogueado.ID, nuevoHash);
         }
     }
 }

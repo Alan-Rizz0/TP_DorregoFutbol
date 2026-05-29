@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.btn_CambiarContraseña = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtbActual = new System.Windows.Forms.TextBox();
+            this.txtbNueva = new System.Windows.Forms.TextBox();
+            this.txtbRepetir = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,30 +46,31 @@
             this.btn_CambiarContraseña.TabIndex = 0;
             this.btn_CambiarContraseña.Text = "Cambiar Contraseña";
             this.btn_CambiarContraseña.UseVisualStyleBackColor = true;
+            this.btn_CambiarContraseña.Click += new System.EventHandler(this.btn_CambiarContraseña_Click);
             // 
-            // textBox1
+            // txtbActual
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox1.Location = new System.Drawing.Point(598, 202);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 29);
-            this.textBox1.TabIndex = 1;
+            this.txtbActual.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtbActual.Location = new System.Drawing.Point(598, 202);
+            this.txtbActual.Name = "txtbActual";
+            this.txtbActual.Size = new System.Drawing.Size(176, 29);
+            this.txtbActual.TabIndex = 1;
             // 
-            // textBox2
+            // txtbNueva
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox2.Location = new System.Drawing.Point(598, 266);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 29);
-            this.textBox2.TabIndex = 2;
+            this.txtbNueva.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtbNueva.Location = new System.Drawing.Point(598, 266);
+            this.txtbNueva.Name = "txtbNueva";
+            this.txtbNueva.Size = new System.Drawing.Size(176, 29);
+            this.txtbNueva.TabIndex = 2;
             // 
-            // textBox3
+            // txtbRepetir
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox3.Location = new System.Drawing.Point(598, 334);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 29);
-            this.textBox3.TabIndex = 3;
+            this.txtbRepetir.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtbRepetir.Location = new System.Drawing.Point(598, 334);
+            this.txtbRepetir.Name = "txtbRepetir";
+            this.txtbRepetir.Size = new System.Drawing.Size(176, 29);
+            this.txtbRepetir.TabIndex = 3;
             // 
             // label1
             // 
@@ -112,9 +113,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtbRepetir);
+            this.Controls.Add(this.txtbNueva);
+            this.Controls.Add(this.txtbActual);
             this.Controls.Add(this.btn_CambiarContraseña);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cambiar_Contraseña";
@@ -128,9 +129,9 @@
         #endregion
 
         private System.Windows.Forms.Button btn_CambiarContraseña;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtbActual;
+        private System.Windows.Forms.TextBox txtbNueva;
+        private System.Windows.Forms.TextBox txtbRepetir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
