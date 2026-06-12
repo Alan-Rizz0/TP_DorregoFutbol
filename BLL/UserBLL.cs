@@ -21,7 +21,7 @@ namespace BLL
             {
                 throw new Exception("El nombre de usuario ya existe en el sistema.");
             }
-            string PasswordPlana = (nombre + dni).Replace(" ", "").ToLower(); //Replace(" ", "").ToLower()  xa sacar los espacios y que sea todo minuscula
+            string PasswordPlana = (nombre + dni).Replace(" ", "").ToLower(); //Replace(" ", "").ToLower()  es para sacar los espacios y que sea todo minuscula
 
             string PasswordHash = CryptoManager.EncryptString(PasswordPlana);
 
@@ -37,9 +37,9 @@ namespace BLL
             
             UserService user = userDAL.SelectByUsername(username);
 
-            if (user == null) throw new Exception("El usuario no existe. ");
+            if (user == null) throw new Exception("El usuario no existe");
 
-            if (user.Bloqueado) throw new Exception("El usuario se encuentra bloqueado. ");
+            if (user.Bloqueado) throw new Exception("El usuario se encuentra bloqueado");
 
             string PasswordHash = CryptoManager.EncryptString(password);
             
@@ -88,18 +88,19 @@ namespace BLL
         {
             if (passNueva != passRepetida)
             {
-                throw new Exception("Las nuevas contraseñas no coinciden.");
+                throw new Exception("Las nuevas contraseñas no coinciden");
             }
 
             if (passNueva.Length < 8)
             {
-                throw new Exception("La clave debe tener mínimo 8 caracteres.");
+                throw new Exception("La clave debe tener mínimo 8 caracteres");
             }
 
             string hashActualIngresado = CryptoManager.EncryptString(passActual);
+
             if (usuarioLogueado.Password != hashActualIngresado)
             {
-                throw new Exception("Contraseña actual errónea.");
+                throw new Exception("Contraseña actual incorrecta");
             }
 
             string PasswordHash = CryptoManager.EncryptString(passNueva);

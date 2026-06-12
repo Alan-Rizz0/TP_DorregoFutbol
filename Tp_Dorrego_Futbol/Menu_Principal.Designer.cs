@@ -44,7 +44,7 @@
             this.btn_CambiarContraseña = new System.Windows.Forms.Button();
             this.Boton_Logout = new System.Windows.Forms.Button();
             this.Contenedor_Administracion = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_usuarios = new System.Windows.Forms.Button();
             this.btn_Administracion = new System.Windows.Forms.Button();
             this.panel_Contenedor = new System.Windows.Forms.Panel();
             this.panel_Menu.SuspendLayout();
@@ -180,8 +180,9 @@
             this.Contenedor_Usuario.Controls.Add(this.panel2);
             this.Contenedor_Usuario.Location = new System.Drawing.Point(3, 85);
             this.Contenedor_Usuario.Name = "Contenedor_Usuario";
-            this.Contenedor_Usuario.Size = new System.Drawing.Size(250, 157);
+            this.Contenedor_Usuario.Size = new System.Drawing.Size(250, 58);
             this.Contenedor_Usuario.TabIndex = 5;
+            this.Contenedor_Usuario.Paint += new System.Windows.Forms.PaintEventHandler(this.Contenedor_Usuario_Paint);
             // 
             // Usuario_boton
             // 
@@ -195,7 +196,7 @@
             this.Usuario_boton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Usuario_boton.Location = new System.Drawing.Point(0, 3);
             this.Usuario_boton.Name = "Usuario_boton";
-            this.Usuario_boton.Size = new System.Drawing.Size(248, 55);
+            this.Usuario_boton.Size = new System.Drawing.Size(248, 52);
             this.Usuario_boton.TabIndex = 2;
             this.Usuario_boton.Text = "Usuario";
             this.Usuario_boton.UseVisualStyleBackColor = false;
@@ -246,31 +247,31 @@
             // 
             // Contenedor_Administracion
             // 
-            this.Contenedor_Administracion.Controls.Add(this.button1);
+            this.Contenedor_Administracion.Controls.Add(this.btn_usuarios);
             this.Contenedor_Administracion.Controls.Add(this.btn_Administracion);
-            this.Contenedor_Administracion.Location = new System.Drawing.Point(3, 248);
+            this.Contenedor_Administracion.Location = new System.Drawing.Point(3, 149);
             this.Contenedor_Administracion.MaximumSize = new System.Drawing.Size(249, 100);
             this.Contenedor_Administracion.MinimumSize = new System.Drawing.Size(249, 54);
             this.Contenedor_Administracion.Name = "Contenedor_Administracion";
-            this.Contenedor_Administracion.Size = new System.Drawing.Size(249, 100);
+            this.Contenedor_Administracion.Size = new System.Drawing.Size(249, 54);
             this.Contenedor_Administracion.TabIndex = 7;
             // 
-            // button1
+            // btn_usuarios
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-1, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(246, 44);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Usuarios";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_usuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_usuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_usuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_usuarios.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_usuarios.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_usuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_usuarios.Location = new System.Drawing.Point(-1, 52);
+            this.btn_usuarios.Name = "btn_usuarios";
+            this.btn_usuarios.Size = new System.Drawing.Size(246, 44);
+            this.btn_usuarios.TabIndex = 10;
+            this.btn_usuarios.Text = "Usuarios";
+            this.btn_usuarios.UseVisualStyleBackColor = false;
+            this.btn_usuarios.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_Administracion
             // 
@@ -284,7 +285,7 @@
             this.btn_Administracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Administracion.Location = new System.Drawing.Point(0, 3);
             this.btn_Administracion.Name = "btn_Administracion";
-            this.btn_Administracion.Size = new System.Drawing.Size(245, 52);
+            this.btn_Administracion.Size = new System.Drawing.Size(245, 51);
             this.btn_Administracion.TabIndex = 2;
             this.btn_Administracion.Text = "Administración";
             this.btn_Administracion.UseVisualStyleBackColor = false;
@@ -348,7 +349,7 @@
         private System.Windows.Forms.Button btn_CambiarContraseña;
         private System.Windows.Forms.Panel Contenedor_Administracion;
         private System.Windows.Forms.Button btn_Administracion;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_usuarios;
     }
 }
 

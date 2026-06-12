@@ -33,6 +33,15 @@ namespace Tp_Dorrego_Futbol
             fh.Show();
         }
 
+        /*
+        private void VerRol(usuario usuario)
+        {
+            if(usuario.rol == "recepcionista")
+            {
+                 btn_usuarios.Enabled = false;
+            }
+        }
+        */
 
         private void Menu_vertical_Paint(object sender, PaintEventArgs e)
         {
@@ -62,6 +71,7 @@ namespace Tp_Dorrego_Futbol
                 Contenedor_Usuario.Height = 58;
             }
         }
+
 
         private void Menu_Principal_Load(object sender, EventArgs e)
         {
@@ -114,11 +124,11 @@ namespace Tp_Dorrego_Futbol
         {
             if (Contenedor_Administracion.Height == 54)
             {
-                Contenedor_Usuario.Height = 100;
+                Contenedor_Administracion.Height = 100;
             }
             else
             {
-                Contenedor_Usuario.Height = 54;
+                Contenedor_Administracion.Height = 54;
             }
         }
 
@@ -150,6 +160,11 @@ namespace Tp_Dorrego_Futbol
                 }
             }
            
+        }
+
+        private void Contenedor_Usuario_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
