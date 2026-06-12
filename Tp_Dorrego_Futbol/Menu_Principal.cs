@@ -124,7 +124,7 @@ namespace Tp_Dorrego_Futbol
 
         private void button1_Click(object sender, EventArgs e)
         {
-           // AbrirFormHijo(new Usuarios);
+           AbrirFormHijo(new btnCrearUsuario());
         }
 
         private void Boton_Logout_Click(object sender, EventArgs e)

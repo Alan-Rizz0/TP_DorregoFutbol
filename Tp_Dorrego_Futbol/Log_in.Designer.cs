@@ -172,6 +172,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Log_in";
             this.Text = "Log_in";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Log_in_FormClosed);
             this.Load += new System.EventHandler(this.Log_in_Load);
             this.Enter += new System.EventHandler(this.click);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Log_in_MouseDown);

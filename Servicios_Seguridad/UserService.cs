@@ -15,5 +15,6 @@ namespace Servicios_Seguridad
         public string Apellido { get; set; }
         public int DNI { get; set; }
         public bool Bloqueado { get; set; }
+        public int IntentosFallido { get; set; }
     }
 }

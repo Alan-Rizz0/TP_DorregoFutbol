@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DAL;
+using Servicios_Seguridad;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
-using Servicios_Seguridad;
 
 namespace BLL
 {
@@ -12,27 +13,76 @@ namespace BLL
     {
         private readonly UserDAL userDAL = new UserDAL();
 
+
+
+        public bool CrearUsuario(string username, string nombre, string apellido, int dni)
+        {
+            if (userDAL.ExisteUsername(username))
+            {
+                throw new Exception("El nombre de usuario ya existe en el sistema.");
+            }
+            string PasswordPlana = (nombre + dni).Replace(" ", "").ToLower(); //Replace(" ", "").ToLower()  xa sacar los espacios y que sea todo minuscula
+
+            string PasswordHash = CryptoManager.EncryptString(PasswordPlana);
+
+            return userDAL.InsertarUsuario(username, PasswordHash, nombre, apellido, dni);
+        }
+        public DataTable ObtenerTodosLosUsuarios()
+        {
+            return userDAL.ObtenerTodosLosUsuarios();
+        }
+
         public bool Login(string username, string password)
         {
+            
             UserService user = userDAL.SelectByUsername(username);
 
             if (user == null) throw new Exception("El usuario no existe. ");
 
             if (user.Bloqueado) throw new Exception("El usuario se encuentra bloqueado. ");
 
-            string InputHashed = CryptoManager.EncryptString(password);
+            string PasswordHash = CryptoManager.EncryptString(password);
             
 
-            if (user.Password == InputHashed)
+            if (user.Password == PasswordHash)
             {
+                if (user.IntentosFallido > 0)
+                {
+                    userDAL.ActualizarIntentos(username, 0, false);
+                }
+
                 SessionManager.Login(user);
                 return true;
             }
             else
             {
-                throw new Exception("La contraseña es incorrecta. ");
+                
+                int nuevosIntentos = user.IntentosFallido + 1;
+                bool debeBloquearse = nuevosIntentos >= 3;
+
+                
+                userDAL.ActualizarIntentos(username, nuevosIntentos, debeBloquearse);
+
+                if (debeBloquearse)
+                {
+                    throw new Exception("La cuenta fue BLOQUEADA. Contacte al administrador.");
+                }
+                else
+                {
+                    
+                    throw new Exception("La contraseña es incorrecta. Intentos fallidos: " + nuevosIntentos.ToString() + "/3");
+                }
             }
         }
+
+        public bool DesbloquearUsuario(int IDUsuario, string nombre, int dni)
+        {
+            string passwordplano = (nombre + dni).Replace(" ", "").ToLower();
+            string passwordHash = CryptoManager.EncryptString(passwordplano);
+
+            return userDAL.DesbloquearUsuario(IDUsuario, passwordHash);
+        }
+
 
         public bool CambiarClave(UserService usuarioLogueado, string passActual, string passNueva, string passRepetida)
         {
@@ -52,9 +102,9 @@ namespace BLL
                 throw new Exception("Contraseña actual errónea.");
             }
 
-            string nuevoHash = CryptoManager.EncryptString(passNueva);
+            string PasswordHash = CryptoManager.EncryptString(passNueva);
 
-            return userDAL.UpdatePassword(usuarioLogueado.ID, nuevoHash);
+            return userDAL.UpdatePassword(usuarioLogueado.ID, PasswordHash);
         }
     }
 }

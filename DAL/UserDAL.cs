@@ -16,6 +16,38 @@ namespace DAL
         Connection cn = new Connection();
         Mapper mapper = new Mapper();
 
+
+        public bool InsertarUsuario(string username, string password, string nombre, string apellido, int dni)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Username", username),
+                new SqlParameter("@Password", password),
+                new SqlParameter("@Nombre", nombre),
+                new SqlParameter("@Apellido", apellido),
+                new SqlParameter("@DNI", dni)
+            };
+
+            return cn.Write("SPInsertarUsuario", parameters);
+        }
+        public DataTable ObtenerTodosLosUsuarios()
+        {
+            return cn.Read("SPObtenerTodosLosUsuarios", null);
+        }
+
+        public bool ExisteUsername(string username)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Username", username),
+            };
+
+            DataTable dt = cn.Read("SPExisteUsuario", parameters);
+            return dt.Rows.Count > 0;
+        }
+
+
+
         public UserService SelectByUsername(string username)
         {
             SqlParameter[] parameters = new SqlParameter[]
@@ -42,6 +74,28 @@ namespace DAL
             };
 
             return cn.Write("SPUpdatePassword", parameters);
+        }
+
+        public bool ActualizarIntentos(string username, int intentos, bool bloqueado)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Username", username),
+                new SqlParameter("@IntentosFallidos", intentos),
+                new SqlParameter("@Bloqueado", bloqueado)
+            };
+
+            return cn.Write("SPActualizarIntentosLogin", parameters);
+        }
+        public bool DesbloquearUsuario(int IDUsuario, string NuevoPassword)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Id", IDUsuario),
+                new SqlParameter("@Password", NuevoPassword)
+            };
+
+            return cn.Write("SPDesbloquearUsuario", parameters);
         }
     }
 }

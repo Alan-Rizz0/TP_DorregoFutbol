@@ -76,7 +76,7 @@ namespace DAL
             catch (Exception ex)
             {
                 transaction.Rollback();
-                Console.WriteLine(ex.Message); //borrar dsp
+                throw new Exception("Error en la base de datos" + ex.Message);
             }
             finally
             {

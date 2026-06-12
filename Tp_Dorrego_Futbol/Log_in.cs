@@ -106,6 +106,10 @@ namespace Tp_Dorrego_Futbol
                 SendMessage(this.Handle, 0x112, 0xf012, 0);
             }
         }
+        private void Log_in_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void boton_Log_in_Click(object sender, EventArgs e)
         {
@@ -136,5 +140,7 @@ namespace Tp_Dorrego_Futbol
                 txtContraseña_logIn.Focus();
             }
         }
+
+      
     }
 }
