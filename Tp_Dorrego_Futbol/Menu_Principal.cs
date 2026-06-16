@@ -124,7 +124,7 @@ namespace Tp_Dorrego_Futbol
         {
             if (Contenedor_Administracion.Height == 54)
             {
-                Contenedor_Administracion.Height = 100;
+                Contenedor_Administracion.Height = 143;
             }
             else
             {
@@ -165,6 +165,11 @@ namespace Tp_Dorrego_Futbol
         private void Contenedor_Usuario_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnBitacora_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new Bitacora());
         }
     }
 }

@@ -47,6 +47,7 @@
             this.btn_usuarios = new System.Windows.Forms.Button();
             this.btn_Administracion = new System.Windows.Forms.Button();
             this.panel_Contenedor = new System.Windows.Forms.Panel();
+            this.btnBitacora = new System.Windows.Forms.Button();
             this.panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resaturar_icono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Maximizar)).BeginInit();
@@ -247,13 +248,12 @@
             // 
             // Contenedor_Administracion
             // 
+            this.Contenedor_Administracion.Controls.Add(this.btnBitacora);
             this.Contenedor_Administracion.Controls.Add(this.btn_usuarios);
             this.Contenedor_Administracion.Controls.Add(this.btn_Administracion);
             this.Contenedor_Administracion.Location = new System.Drawing.Point(3, 149);
-            this.Contenedor_Administracion.MaximumSize = new System.Drawing.Size(249, 100);
-            this.Contenedor_Administracion.MinimumSize = new System.Drawing.Size(249, 54);
             this.Contenedor_Administracion.Name = "Contenedor_Administracion";
-            this.Contenedor_Administracion.Size = new System.Drawing.Size(249, 54);
+            this.Contenedor_Administracion.Size = new System.Drawing.Size(249, 53);
             this.Contenedor_Administracion.TabIndex = 7;
             // 
             // btn_usuarios
@@ -285,7 +285,7 @@
             this.btn_Administracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Administracion.Location = new System.Drawing.Point(0, 3);
             this.btn_Administracion.Name = "btn_Administracion";
-            this.btn_Administracion.Size = new System.Drawing.Size(245, 51);
+            this.btn_Administracion.Size = new System.Drawing.Size(245, 50);
             this.btn_Administracion.TabIndex = 2;
             this.btn_Administracion.Text = "Administración";
             this.btn_Administracion.UseVisualStyleBackColor = false;
@@ -300,6 +300,23 @@
             this.panel_Contenedor.Size = new System.Drawing.Size(1320, 748);
             this.panel_Contenedor.TabIndex = 2;
             this.panel_Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Contenedor_Paint);
+            // 
+            // btnBitacora
+            // 
+            this.btnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnBitacora.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBitacora.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBitacora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBitacora.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnBitacora.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBitacora.Location = new System.Drawing.Point(-1, 96);
+            this.btnBitacora.Name = "btnBitacora";
+            this.btnBitacora.Size = new System.Drawing.Size(246, 44);
+            this.btnBitacora.TabIndex = 11;
+            this.btnBitacora.Text = "Bitacora Eventos";
+            this.btnBitacora.UseVisualStyleBackColor = false;
+            this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
             // 
             // Menu_Principal
             // 
@@ -350,6 +367,7 @@
         private System.Windows.Forms.Panel Contenedor_Administracion;
         private System.Windows.Forms.Button btn_Administracion;
         private System.Windows.Forms.Button btn_usuarios;
+        private System.Windows.Forms.Button btnBitacora;
     }
 }
 
