@@ -303,6 +303,7 @@
             this.btnActDesact.TabIndex = 43;
             this.btnActDesact.Text = "Act. / Desact.";
             this.btnActDesact.UseVisualStyleBackColor = false;
+            this.btnActDesact.Click += new System.EventHandler(this.btnActDesact_Click);
             // 
             // btnAplicar
             // 

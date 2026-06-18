@@ -97,5 +97,16 @@ namespace DAL
 
             return cn.Write("SPDesbloquearUsuario", parameters);
         }
+
+        public bool CambiarEstadoActivo(int IDUsuario, bool Bloqueado)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Id", IDUsuario),
+                new SqlParameter("@Bloqueado", Bloqueado)
+            };
+
+            return cn.Write("SPCambiarEstadoActivoUsuario", parameters);
+        }
     }
 }

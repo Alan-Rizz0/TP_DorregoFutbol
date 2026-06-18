@@ -12,7 +12,7 @@ namespace BLL
     public class UserBLL
     {
         private readonly UserDAL userDAL = new UserDAL();
-
+        private readonly BitacoraBLL bitacoraBll = new BitacoraBLL();
 
 
         public bool CrearUsuario(string username, string nombre, string apellido, int dni)
@@ -39,7 +39,10 @@ namespace BLL
 
             if (user == null) throw new Exception("El usuario no existe");
 
-            if (user.Bloqueado) throw new Exception("El usuario se encuentra bloqueado");
+            if (user.Bloqueado)
+            {
+                throw new Exception("Usuario no habilitado. Comuníquese con el administrador.");
+            }
 
             string PasswordHash = CryptoManager.EncryptString(password);
             
@@ -52,6 +55,9 @@ namespace BLL
                 }
 
                 SessionManager.Login(user);
+
+                bitacoraBll.RegistrarEvento(user.ID, "Seguridad", "Login", 3);
+
                 return true;
             }
             else
@@ -65,11 +71,14 @@ namespace BLL
 
                 if (debeBloquearse)
                 {
+                    bitacoraBll.RegistrarEvento(user.ID, "Usuarios", "Usuario bloqueado por intentos fallidos", 1);
+
                     throw new Exception("La cuenta fue BLOQUEADA. Contacte al administrador.");
                 }
                 else
                 {
-                    
+                    bitacoraBll.RegistrarEvento(user.ID, "Seguridad", "Error común de contraseña", 3);
+
                     throw new Exception("La contraseña es incorrecta. Intentos fallidos: " + nuevosIntentos.ToString() + "/3");
                 }
             }
@@ -107,7 +116,17 @@ namespace BLL
 
             return userDAL.UpdatePassword(usuarioLogueado.ID, PasswordHash);
         }
+
+
+        public bool CambiarEstadoActivo(int IDUsuario, bool EstadoBloqueadoActual)
+        {
+            // invierto el estado 
+            bool nuevoEstado = !EstadoBloqueadoActual;
+
+            return userDAL.CambiarEstadoActivo(IDUsuario, nuevoEstado);
+        }
     }
+
 }
 
 /*

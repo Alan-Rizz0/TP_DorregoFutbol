@@ -77,6 +77,8 @@ namespace Tp_Dorrego_Futbol
                 BLL.UserBLL userBLL = new BLL.UserBLL();
 
                 dataGridView1.DataSource = userBLL.ObtenerTodosLosUsuarios();
+                dataGridView1.Columns["Bloqueado"].ReadOnly = true;
+
             }
             catch (Exception ex)
             {
@@ -125,5 +127,61 @@ namespace Tp_Dorrego_Futbol
                 MessageBox.Show("Error al intentar desbloquear: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnActDesact_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione un usuario de la lista", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int idUsuario = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+                string username = dataGridView1.CurrentRow.Cells["Username"].Value.ToString();
+
+                bool estaBloqueado = false;
+                if (dataGridView1.CurrentRow.Cells["Bloqueado"].Value != null && dataGridView1.CurrentRow.Cells["Bloqueado"].Value != DBNull.Value)
+                {
+                    estaBloqueado = Convert.ToBoolean(dataGridView1.CurrentRow.Cells["Bloqueado"].Value);
+                }
+
+                
+                string accion;
+                if (estaBloqueado == true)
+                {
+                    accion = "ACTIVAR";
+                }
+                else
+                {
+                    accion = "DESACTIVAR";
+                }
+
+                DialogResult result = MessageBox.Show("Esta seguro que desea " + accion + " al usuario " + username, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    BLL.UserBLL userBll = new BLL.UserBLL();
+
+                    if (userBll.CambiarEstadoActivo(idUsuario, estaBloqueado))
+                    {
+                        string mensajeExito = estaBloqueado ? "activado" : "desactivado";
+                        MessageBox.Show("El usuario " + username + " fue " + mensajeExito + " correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        ActualizarGrilla(); 
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo cambiar el estado en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cambiar el estado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+
