@@ -35,5 +35,10 @@ namespace BLL
         {
             return bitacoraDAL.ListarBitacora();
         }
+
+        public DataTable ObtenerBitacoraFiltrada(string nombre, string apellido, string username,string modulo,string evento, int? criticidad,DateTime? fechaInicio,DateTime? fechaFin)
+        {
+            return bitacoraDAL.ListarBitacoraFiltrada(nombre,apellido,username,modulo,evento,criticidad,fechaInicio,fechaFin);
+        }
     }
 }

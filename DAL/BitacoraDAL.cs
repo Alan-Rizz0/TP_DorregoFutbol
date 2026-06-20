@@ -39,6 +39,23 @@ namespace DAL
         {
             return cn.Read("SPListarBitacora", null);
         }
+
+        public DataTable ListarBitacoraFiltrada(string nombre,string apellido, string username, string modulo, string evento, int? criticidad, DateTime? fechaInicio, DateTime? fechaFin)
+            {
+                SqlParameter[] parametros = new SqlParameter[]
+                {
+                new SqlParameter("@Nombre", string.IsNullOrWhiteSpace(nombre) ? (object)DBNull.Value : nombre),
+                new SqlParameter("@Apellido", string.IsNullOrWhiteSpace(apellido) ? (object)DBNull.Value : apellido),
+                new SqlParameter("@Username", string.IsNullOrWhiteSpace(username) ? (object)DBNull.Value : username),
+                new SqlParameter("@Modulo", string.IsNullOrWhiteSpace(modulo) ? (object)DBNull.Value : modulo),
+                new SqlParameter("@Evento", string.IsNullOrWhiteSpace(evento) ? (object)DBNull.Value : evento),
+                new SqlParameter("@Criticidad", criticidad.HasValue ? (object)criticidad.Value : DBNull.Value),
+                new SqlParameter("@FechaInicio", fechaInicio.HasValue ? (object)fechaInicio.Value : DBNull.Value),
+                new SqlParameter("@FechaFin", fechaFin.HasValue ? (object)fechaFin.Value : DBNull.Value)
+                };
+
+            return cn.Read("SPFiltrarBitacora", parametros);
+        }
     }
 
 

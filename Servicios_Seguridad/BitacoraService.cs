@@ -10,11 +10,12 @@ namespace Servicios_Seguridad
     {
         public int Id { get; set; }
         public int Id_Usuario { get; set; }
+        public string Nombre { get; set; }
+        public string apellido { get; set; }
         public DateTime Fecha { get; set; }
         public string Modulo { get; set; }
         public string Evento { get; set; }
         public int Criticidad { get; set; }
-
         public string Username { get; set; }
     }
 }
