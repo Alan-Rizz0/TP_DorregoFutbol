@@ -65,6 +65,8 @@
             this.dataGridViewBitacora.Name = "dataGridViewBitacora";
             this.dataGridViewBitacora.Size = new System.Drawing.Size(982, 274);
             this.dataGridViewBitacora.TabIndex = 0;
+            this.dataGridViewBitacora.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBitacora_CellClick);
+            this.dataGridViewBitacora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBitacora_CellContentClick);
             // 
             // label1
             // 
@@ -234,6 +236,7 @@
             // 
             // cmbCriticidad
             // 
+            this.cmbCriticidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCriticidad.FormattingEnabled = true;
             this.cmbCriticidad.Location = new System.Drawing.Point(371, 54);
             this.cmbCriticidad.Name = "cmbCriticidad";
@@ -242,6 +245,7 @@
             // 
             // cmbEvento
             // 
+            this.cmbEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEvento.FormattingEnabled = true;
             this.cmbEvento.Location = new System.Drawing.Point(371, 110);
             this.cmbEvento.Name = "cmbEvento";
@@ -250,6 +254,7 @@
             // 
             // cmbModulo
             // 
+            this.cmbModulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbModulo.FormattingEnabled = true;
             this.cmbModulo.Location = new System.Drawing.Point(92, 110);
             this.cmbModulo.Name = "cmbModulo";
@@ -258,6 +263,7 @@
             // 
             // cmbLogin
             // 
+            this.cmbLogin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLogin.FormattingEnabled = true;
             this.cmbLogin.Location = new System.Drawing.Point(92, 54);
             this.cmbLogin.Name = "cmbLogin";
@@ -305,6 +311,7 @@
             this.btnImprimir.TabIndex = 6;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // Bitacora
             // 

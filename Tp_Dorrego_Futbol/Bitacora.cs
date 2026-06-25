@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+
 
 namespace Tp_Dorrego_Futbol
 {
@@ -167,6 +171,95 @@ namespace Tp_Dorrego_Futbol
         }
 
 
+        private void ExportarBitacoraAPDF()
+        {
+            if (dataGridViewBitacora.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay eventos para imprimir.","Imprimir",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;
+            }
+
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.Filter = "Archivo PDF|*.pdf";
+            guardar.Title = "Guardar bitacora de eventos";
+            guardar.FileName = "BitacoraDeEventos.pdf";
+
+            if (guardar.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            Document documento = new Document(PageSize.A4.Rotate(), 20, 20, 20, 20);
+
+            PdfWriter.GetInstance(documento, new FileStream(guardar.FileName, FileMode.Create));
+
+            documento.Open();
+
+            Paragraph titulo = new Paragraph("Bitacora de eventos");
+            titulo.Alignment = Element.ALIGN_CENTER;
+            titulo.SpacingAfter = 15;
+            documento.Add(titulo);
+
+            Paragraph fecha = new Paragraph("Fecha de impresión: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            fecha.SpacingAfter = 15;
+            documento.Add(fecha);
+
+          
+            int cantidadColumnas = 0;
+
+            foreach (DataGridViewColumn columna in dataGridViewBitacora.Columns)
+            {
+                if (columna.Visible)
+                {
+                    cantidadColumnas++;
+                }
+            }
+
+            PdfPTable tablaPdf = new PdfPTable(cantidadColumnas);
+            tablaPdf.WidthPercentage = 100;
+
+       
+            foreach (DataGridViewColumn columna in dataGridViewBitacora.Columns)
+            {
+                if (columna.Visible)
+                {
+                    PdfPCell celda = new PdfPCell(new Phrase(columna.HeaderText));
+                    celda.HorizontalAlignment = Element.ALIGN_CENTER;
+                    tablaPdf.AddCell(celda);
+                }
+            }
+
+          
+            foreach (DataGridViewRow fila in dataGridViewBitacora.Rows)
+            {
+                if (!fila.IsNewRow)
+                {
+                    foreach (DataGridViewColumn columna in dataGridViewBitacora.Columns)
+                    {
+                        if (columna.Visible)
+                        {
+                            object valor = fila.Cells[columna.Name].Value;
+
+                            string texto = "";
+
+                            if (valor != null)
+                            {
+                                texto = valor.ToString();
+                            }
+
+                            tablaPdf.AddCell(texto);
+                        }
+                    }
+                }
+            }
+
+            documento.Add(tablaPdf);
+
+            documento.Close();
+
+            MessageBox.Show("PDF generado correctamente.","Imprimir",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
         private void Bitacora_Load(object sender, EventArgs e)
         {
             dateFechadesde.ShowCheckBox = true;
@@ -252,7 +345,6 @@ namespace Tp_Dorrego_Futbol
             return criticidad;
         }
 
-
         private void CargarGrillaBitacoraFiltrada()
         {
             try
@@ -303,11 +395,6 @@ namespace Tp_Dorrego_Futbol
 
         }
 
-        private void LimpiarControles()
-        {
-            txtApellido.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-        }
 
         private void LimpiarCombo(ComboBox comboBox)
         {
@@ -331,14 +418,52 @@ namespace Tp_Dorrego_Futbol
 
             txtApellido.Clear();
 
-            /*
+            
             LimpiarCombo(cmbCriticidad);
             LimpiarCombo(cmbEvento);
             LimpiarCombo(cmbModulo);
             LimpiarCombo(cmbLogin);
-            */
+            
 
             CargarGrillaBitacora();
+        }
+
+        private void dataGridViewBitacora_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewBitacora_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            DataGridViewRow fila = dataGridViewBitacora.Rows[e.RowIndex];
+
+            if (fila.Cells["Nombre"].Value != null)
+            {
+                txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
+            }
+            else
+            {
+                txtNombre.Text = "";
+            }
+
+            if (fila.Cells["Apellido"].Value != null)
+            {
+                txtApellido.Text = fila.Cells["Apellido"].Value.ToString();
+            }
+            else
+            {
+                txtApellido.Text = "";
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            ExportarBitacoraAPDF();
         }
     }
 }
