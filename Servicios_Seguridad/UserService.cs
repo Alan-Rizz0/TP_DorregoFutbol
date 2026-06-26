@@ -16,5 +16,7 @@ namespace Servicios_Seguridad
         public int DNI { get; set; }
         public bool Bloqueado { get; set; }
         public int IntentosFallido { get; set; }
+
+        public int IdIdioma { get; set; }
     }
 }

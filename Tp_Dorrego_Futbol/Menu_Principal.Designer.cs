@@ -35,19 +35,20 @@
             this.Icono_Cerrar = new System.Windows.Forms.PictureBox();
             this.Icono_Minimizar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Label_Menu = new System.Windows.Forms.Label();
             this.Menu_vertical = new System.Windows.Forms.FlowLayoutPanel();
             this.Foto_Dorrego = new System.Windows.Forms.PictureBox();
             this.Contenedor_Usuario = new System.Windows.Forms.Panel();
-            this.Usuario_boton = new System.Windows.Forms.Button();
+            this.btn_Usuario = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_CambiarContraseña = new System.Windows.Forms.Button();
-            this.Boton_Logout = new System.Windows.Forms.Button();
+            this.btn_LogOut = new System.Windows.Forms.Button();
             this.Contenedor_Administracion = new System.Windows.Forms.Panel();
+            this.btn_Bitacora = new System.Windows.Forms.Button();
             this.btn_usuarios = new System.Windows.Forms.Button();
             this.btn_Administracion = new System.Windows.Forms.Button();
             this.panel_Contenedor = new System.Windows.Forms.Panel();
-            this.btnBitacora = new System.Windows.Forms.Button();
+            this.btn_CambiarIdioma = new System.Windows.Forms.Button();
             this.panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resaturar_icono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Maximizar)).BeginInit();
@@ -69,7 +70,7 @@
             this.panel_Menu.Controls.Add(this.Icono_Cerrar);
             this.panel_Menu.Controls.Add(this.Icono_Minimizar);
             this.panel_Menu.Controls.Add(this.pictureBox1);
-            this.panel_Menu.Controls.Add(this.label1);
+            this.panel_Menu.Controls.Add(this.Label_Menu);
             this.panel_Menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Menu.Location = new System.Drawing.Point(250, 0);
             this.panel_Menu.Name = "panel_Menu";
@@ -141,15 +142,15 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label1
+            // Label_Menu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Menú";
+            this.Label_Menu.AutoSize = true;
+            this.Label_Menu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Menu.Location = new System.Drawing.Point(58, 9);
+            this.Label_Menu.Name = "Label_Menu";
+            this.Label_Menu.Size = new System.Drawing.Size(50, 21);
+            this.Label_Menu.TabIndex = 2;
+            this.Label_Menu.Text = "Menú";
             // 
             // Menu_vertical
             // 
@@ -157,6 +158,7 @@
             this.Menu_vertical.Controls.Add(this.Foto_Dorrego);
             this.Menu_vertical.Controls.Add(this.Contenedor_Usuario);
             this.Menu_vertical.Controls.Add(this.Contenedor_Administracion);
+            this.Menu_vertical.Controls.Add(this.btn_CambiarIdioma);
             this.Menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.Menu_vertical.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Menu_vertical.Location = new System.Drawing.Point(0, 0);
@@ -177,36 +179,36 @@
             // 
             // Contenedor_Usuario
             // 
-            this.Contenedor_Usuario.Controls.Add(this.Usuario_boton);
+            this.Contenedor_Usuario.Controls.Add(this.btn_Usuario);
             this.Contenedor_Usuario.Controls.Add(this.panel2);
             this.Contenedor_Usuario.Location = new System.Drawing.Point(3, 85);
             this.Contenedor_Usuario.Name = "Contenedor_Usuario";
-            this.Contenedor_Usuario.Size = new System.Drawing.Size(250, 58);
+            this.Contenedor_Usuario.Size = new System.Drawing.Size(250, 154);
             this.Contenedor_Usuario.TabIndex = 5;
             this.Contenedor_Usuario.Paint += new System.Windows.Forms.PaintEventHandler(this.Contenedor_Usuario_Paint);
             // 
-            // Usuario_boton
+            // btn_Usuario
             // 
-            this.Usuario_boton.BackColor = System.Drawing.Color.Black;
-            this.Usuario_boton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Usuario_boton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Usuario_boton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Usuario_boton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Usuario_boton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Usuario_boton.Image = global::Tp_Dorrego_Futbol.Properties.Resources.IconoUsuario_convertido_a_35x35;
-            this.Usuario_boton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Usuario_boton.Location = new System.Drawing.Point(0, 3);
-            this.Usuario_boton.Name = "Usuario_boton";
-            this.Usuario_boton.Size = new System.Drawing.Size(248, 52);
-            this.Usuario_boton.TabIndex = 2;
-            this.Usuario_boton.Text = "Usuario";
-            this.Usuario_boton.UseVisualStyleBackColor = false;
-            this.Usuario_boton.Click += new System.EventHandler(this.Administración_boton_Click);
+            this.btn_Usuario.BackColor = System.Drawing.Color.Black;
+            this.btn_Usuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_Usuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Usuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Usuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Usuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Usuario.Image = global::Tp_Dorrego_Futbol.Properties.Resources.IconoUsuario_convertido_a_35x35;
+            this.btn_Usuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Usuario.Location = new System.Drawing.Point(0, 3);
+            this.btn_Usuario.Name = "btn_Usuario";
+            this.btn_Usuario.Size = new System.Drawing.Size(248, 52);
+            this.btn_Usuario.TabIndex = 2;
+            this.btn_Usuario.Text = "Usuario";
+            this.btn_Usuario.UseVisualStyleBackColor = false;
+            this.btn_Usuario.Click += new System.EventHandler(this.Administración_boton_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btn_CambiarContraseña);
-            this.panel2.Controls.Add(this.Boton_Logout);
+            this.panel2.Controls.Add(this.btn_LogOut);
             this.panel2.Location = new System.Drawing.Point(1, 56);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(247, 96);
@@ -229,32 +231,49 @@
             this.btn_CambiarContraseña.UseVisualStyleBackColor = false;
             this.btn_CambiarContraseña.Click += new System.EventHandler(this.btn_CambiarContraseña_Click);
             // 
-            // Boton_Logout
+            // btn_LogOut
             // 
-            this.Boton_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Boton_Logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Boton_Logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Boton_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Boton_Logout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Boton_Logout.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Boton_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Boton_Logout.Location = new System.Drawing.Point(0, 0);
-            this.Boton_Logout.Name = "Boton_Logout";
-            this.Boton_Logout.Size = new System.Drawing.Size(246, 44);
-            this.Boton_Logout.TabIndex = 2;
-            this.Boton_Logout.Text = "Cerrar Sesión";
-            this.Boton_Logout.UseVisualStyleBackColor = false;
-            this.Boton_Logout.Click += new System.EventHandler(this.Boton_Logout_Click);
+            this.btn_LogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_LogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_LogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_LogOut.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LogOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_LogOut.Location = new System.Drawing.Point(0, 0);
+            this.btn_LogOut.Name = "btn_LogOut";
+            this.btn_LogOut.Size = new System.Drawing.Size(246, 44);
+            this.btn_LogOut.TabIndex = 2;
+            this.btn_LogOut.Text = "Cerrar Sesión";
+            this.btn_LogOut.UseVisualStyleBackColor = false;
+            this.btn_LogOut.Click += new System.EventHandler(this.Boton_Logout_Click);
             // 
             // Contenedor_Administracion
             // 
-            this.Contenedor_Administracion.Controls.Add(this.btnBitacora);
+            this.Contenedor_Administracion.Controls.Add(this.btn_Bitacora);
             this.Contenedor_Administracion.Controls.Add(this.btn_usuarios);
             this.Contenedor_Administracion.Controls.Add(this.btn_Administracion);
-            this.Contenedor_Administracion.Location = new System.Drawing.Point(3, 149);
+            this.Contenedor_Administracion.Location = new System.Drawing.Point(3, 245);
             this.Contenedor_Administracion.Name = "Contenedor_Administracion";
-            this.Contenedor_Administracion.Size = new System.Drawing.Size(249, 53);
+            this.Contenedor_Administracion.Size = new System.Drawing.Size(249, 142);
             this.Contenedor_Administracion.TabIndex = 7;
+            // 
+            // btn_Bitacora
+            // 
+            this.btn_Bitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Bitacora.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_Bitacora.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Bitacora.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Bitacora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Bitacora.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Bitacora.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Bitacora.Location = new System.Drawing.Point(-1, 96);
+            this.btn_Bitacora.Name = "btn_Bitacora";
+            this.btn_Bitacora.Size = new System.Drawing.Size(246, 44);
+            this.btn_Bitacora.TabIndex = 11;
+            this.btn_Bitacora.Text = "Bitacora Eventos";
+            this.btn_Bitacora.UseVisualStyleBackColor = false;
+            this.btn_Bitacora.Click += new System.EventHandler(this.btnBitacora_Click);
             // 
             // btn_usuarios
             // 
@@ -301,22 +320,16 @@
             this.panel_Contenedor.TabIndex = 2;
             this.panel_Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Contenedor_Paint);
             // 
-            // btnBitacora
+            // btn_CambiarIdioma
             // 
-            this.btnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnBitacora.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnBitacora.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBitacora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBitacora.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnBitacora.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBitacora.Location = new System.Drawing.Point(-1, 96);
-            this.btnBitacora.Name = "btnBitacora";
-            this.btnBitacora.Size = new System.Drawing.Size(246, 44);
-            this.btnBitacora.TabIndex = 11;
-            this.btnBitacora.Text = "Bitacora Eventos";
-            this.btnBitacora.UseVisualStyleBackColor = false;
-            this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
+            this.btn_CambiarIdioma.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btn_CambiarIdioma.Location = new System.Drawing.Point(3, 393);
+            this.btn_CambiarIdioma.Name = "btn_CambiarIdioma";
+            this.btn_CambiarIdioma.Size = new System.Drawing.Size(250, 61);
+            this.btn_CambiarIdioma.TabIndex = 8;
+            this.btn_CambiarIdioma.Text = "Cambiar Idioma";
+            this.btn_CambiarIdioma.UseVisualStyleBackColor = true;
+            this.btn_CambiarIdioma.Click += new System.EventHandler(this.btn_CambiarIdioma_Click);
             // 
             // Menu_Principal
             // 
@@ -350,10 +363,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel_Menu;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Label_Menu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel Menu_vertical;
-        private System.Windows.Forms.Button Usuario_boton;
+        private System.Windows.Forms.Button btn_Usuario;
         private System.Windows.Forms.Panel panel_Contenedor;
         private System.Windows.Forms.PictureBox Foto_Dorrego;
         private System.Windows.Forms.PictureBox Icono_Cerrar;
@@ -362,12 +375,13 @@
         private System.Windows.Forms.PictureBox resaturar_icono;
         private System.Windows.Forms.Panel Contenedor_Usuario;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button Boton_Logout;
+        private System.Windows.Forms.Button btn_LogOut;
         private System.Windows.Forms.Button btn_CambiarContraseña;
         private System.Windows.Forms.Panel Contenedor_Administracion;
         private System.Windows.Forms.Button btn_Administracion;
         private System.Windows.Forms.Button btn_usuarios;
-        private System.Windows.Forms.Button btnBitacora;
+        private System.Windows.Forms.Button btn_Bitacora;
+        private System.Windows.Forms.Button btn_CambiarIdioma;
     }
 }
 

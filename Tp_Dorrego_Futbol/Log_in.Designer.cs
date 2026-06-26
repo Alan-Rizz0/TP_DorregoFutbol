@@ -33,8 +33,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.boton_Log_in = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btn_logIn = new System.Windows.Forms.Button();
+            this.Label_Datos = new System.Windows.Forms.Label();
             this.Label_Ayuda = new System.Windows.Forms.Label();
             this.txtNombre_LogIn = new System.Windows.Forms.TextBox();
             this.txtContraseña_logIn = new System.Windows.Forms.TextBox();
@@ -91,32 +91,32 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // boton_Log_in
+            // btn_logIn
             // 
-            this.boton_Log_in.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btn_logIn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.boton_Log_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boton_Log_in.Location = new System.Drawing.Point(160, 304);
-            this.boton_Log_in.Name = "boton_Log_in";
-            this.boton_Log_in.Size = new System.Drawing.Size(179, 37);
-            this.boton_Log_in.TabIndex = 6;
-            this.boton_Log_in.Text = "Iniciar Sesión";
-            this.boton_Log_in.UseVisualStyleBackColor = true;
-            this.boton_Log_in.Click += new System.EventHandler(this.boton_Log_in_Click);
+            this.btn_logIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_logIn.Location = new System.Drawing.Point(160, 304);
+            this.btn_logIn.Name = "btn_logIn";
+            this.btn_logIn.Size = new System.Drawing.Size(179, 37);
+            this.btn_logIn.TabIndex = 6;
+            this.btn_logIn.Text = "Iniciar Sesión";
+            this.btn_logIn.UseVisualStyleBackColor = true;
+            this.btn_logIn.Click += new System.EventHandler(this.boton_Log_in_Click);
             // 
-            // label1
+            // Label_Datos
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Label_Datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(171, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Ingrese sus datos";
+            this.Label_Datos.AutoSize = true;
+            this.Label_Datos.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Datos.Location = new System.Drawing.Point(171, 110);
+            this.Label_Datos.Name = "Label_Datos";
+            this.Label_Datos.Size = new System.Drawing.Size(157, 25);
+            this.Label_Datos.TabIndex = 7;
+            this.Label_Datos.Text = "Ingrese sus datos";
             // 
             // Label_Ayuda
             // 
@@ -166,8 +166,8 @@
             this.Controls.Add(this.txtContraseña_logIn);
             this.Controls.Add(this.txtNombre_LogIn);
             this.Controls.Add(this.Label_Ayuda);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.boton_Log_in);
+            this.Controls.Add(this.Label_Datos);
+            this.Controls.Add(this.btn_logIn);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Log_in";
@@ -189,8 +189,8 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button boton_Log_in;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_logIn;
+        private System.Windows.Forms.Label Label_Datos;
         private System.Windows.Forms.Label Label_Ayuda;
         private System.Windows.Forms.TextBox txtNombre_LogIn;
         private System.Windows.Forms.TextBox txtContraseña_logIn;

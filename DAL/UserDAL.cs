@@ -108,5 +108,17 @@ namespace DAL
 
             return cn.Write("SPCambiarEstadoActivoUsuario", parameters);
         }
+
+
+        public bool ActualizarIdiomaUsuario(int idUsuario, int idIdioma)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@IdUsuario", idUsuario),
+                new SqlParameter("@IDIdioma", idIdioma)
+            };
+
+            return cn.Write("SPActualizarIdiomaUsuario", parameters);
+        }
     }
 }

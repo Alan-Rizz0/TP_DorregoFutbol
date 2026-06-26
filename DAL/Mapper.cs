@@ -22,7 +22,8 @@ namespace DAL
                 Apellido = row["Apellido"].ToString(),
                 DNI = Convert.ToInt32(row["Dni"]),
                 Bloqueado = Convert.ToBoolean(row["Bloqueado"]),
-                IntentosFallido = Convert.ToInt32(row["IntentosFallidos"])
+                IntentosFallido = Convert.ToInt32(row["IntentosFallidos"]),
+                IdIdioma = Convert.ToInt32(row["IDIdioma"])
             };
         }
     }

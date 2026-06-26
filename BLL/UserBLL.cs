@@ -125,6 +125,13 @@ namespace BLL
 
             return userDAL.CambiarEstadoActivo(IDUsuario, nuevoEstado);
         }
+
+
+        public bool ActualizarIdiomaUsuario(int idUsuario, int idIdioma)
+        {
+            UserDAL userDal = new UserDAL();
+            return userDal.ActualizarIdiomaUsuario(idUsuario, idIdioma);
+        }
     }
 
 }

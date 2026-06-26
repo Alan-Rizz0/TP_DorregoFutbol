@@ -1,11 +1,12 @@
 ﻿using Servicios_Seguridad;
 using System;
+using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Tp_Dorrego_Futbol
 {
-    public partial class Menu_Principal : Form
+    public partial class Menu_Principal : Form, IObserver
     {
         public Menu_Principal()
         {
@@ -75,7 +76,7 @@ namespace Tp_Dorrego_Futbol
 
         private void Menu_Principal_Load(object sender, EventArgs e)
         {
-
+            LenguajeManager.GetInstance().AgregarObserver(this);
         }
 
         private void Icono_Cerrar_Click(object sender, EventArgs e)
@@ -170,6 +171,72 @@ namespace Tp_Dorrego_Futbol
         private void btnBitacora_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new Bitacora());
+        }
+
+        private void btn_CambiarIdioma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int idiomaActual = Servicios_Seguridad.SessionManager.GetInstance.Usuario.IdIdioma;
+
+
+                int nuevoIdioma;
+
+                if (idiomaActual == 2)
+                {
+                    nuevoIdioma = 1;
+                }
+                else
+                {
+                    nuevoIdioma = 2;
+                }
+
+
+                BLL.IdiomaBLL idiomaBll = new BLL.IdiomaBLL();
+                DataTable dtTraducciones = idiomaBll.ObtenerTraducciones(nuevoIdioma);
+
+                if (dtTraducciones != null && dtTraducciones.Rows.Count > 0)
+                {
+                    Servicios_Seguridad.LenguajeManager.GetInstance().CambiarIdioma(nuevoIdioma, dtTraducciones);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron traducciones en la Base de Datos para el idioma seleccionado.", "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cambiar el idioma: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void ActualizarIdioma(object traducciones)
+        {
+            DataTable dtTraducciones = (DataTable)traducciones;
+
+
+            foreach (DataRow row in dtTraducciones.Rows)
+            {
+                if (row["ClaveControl"].ToString() == this.Name)
+                {
+                    this.Text = row["Texto"].ToString();
+                }
+            }
+
+
+            foreach (DataRow row in dtTraducciones.Rows)
+            {
+                string nombreControl = row["ClaveControl"].ToString();
+                string textoTraducido = row["Texto"].ToString();
+
+
+                Control[] encontrados = this.Controls.Find(nombreControl, true);
+                if (encontrados.Length > 0)
+                {
+                    encontrados[0].Text = textoTraducido;
+                }
+            }
         }
     }
 }
