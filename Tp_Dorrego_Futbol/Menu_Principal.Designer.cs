@@ -47,8 +47,9 @@
             this.btn_Bitacora = new System.Windows.Forms.Button();
             this.btn_usuarios = new System.Windows.Forms.Button();
             this.btn_Administracion = new System.Windows.Forms.Button();
-            this.panel_Contenedor = new System.Windows.Forms.Panel();
             this.btn_CambiarIdioma = new System.Windows.Forms.Button();
+            this.panel_Contenedor = new System.Windows.Forms.Panel();
+            this.cmbIdioma = new System.Windows.Forms.ComboBox();
             this.panel_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resaturar_icono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icono_Maximizar)).BeginInit();
@@ -65,6 +66,7 @@
             // panel_Menu
             // 
             this.panel_Menu.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel_Menu.Controls.Add(this.cmbIdioma);
             this.panel_Menu.Controls.Add(this.resaturar_icono);
             this.panel_Menu.Controls.Add(this.Icono_Maximizar);
             this.panel_Menu.Controls.Add(this.Icono_Cerrar);
@@ -310,16 +312,6 @@
             this.btn_Administracion.UseVisualStyleBackColor = false;
             this.btn_Administracion.Click += new System.EventHandler(this.btn_Administracion_Click);
             // 
-            // panel_Contenedor
-            // 
-            this.panel_Contenedor.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel_Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Contenedor.Location = new System.Drawing.Point(250, 0);
-            this.panel_Contenedor.Name = "panel_Contenedor";
-            this.panel_Contenedor.Size = new System.Drawing.Size(1320, 748);
-            this.panel_Contenedor.TabIndex = 2;
-            this.panel_Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Contenedor_Paint);
-            // 
             // btn_CambiarIdioma
             // 
             this.btn_CambiarIdioma.Font = new System.Drawing.Font("Segoe UI", 9.75F);
@@ -330,6 +322,24 @@
             this.btn_CambiarIdioma.Text = "Cambiar Idioma";
             this.btn_CambiarIdioma.UseVisualStyleBackColor = true;
             this.btn_CambiarIdioma.Click += new System.EventHandler(this.btn_CambiarIdioma_Click);
+            // 
+            // panel_Contenedor
+            // 
+            this.panel_Contenedor.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel_Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Contenedor.Location = new System.Drawing.Point(250, 0);
+            this.panel_Contenedor.Name = "panel_Contenedor";
+            this.panel_Contenedor.Size = new System.Drawing.Size(1320, 748);
+            this.panel_Contenedor.TabIndex = 2;
+            this.panel_Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Contenedor_Paint);
+            // 
+            // cmbIdioma
+            // 
+            this.cmbIdioma.FormattingEnabled = true;
+            this.cmbIdioma.Location = new System.Drawing.Point(501, 24);
+            this.cmbIdioma.Name = "cmbIdioma";
+            this.cmbIdioma.Size = new System.Drawing.Size(121, 21);
+            this.cmbIdioma.TabIndex = 6;
             // 
             // Menu_Principal
             // 
@@ -382,6 +392,7 @@
         private System.Windows.Forms.Button btn_usuarios;
         private System.Windows.Forms.Button btn_Bitacora;
         private System.Windows.Forms.Button btn_CambiarIdioma;
+        private System.Windows.Forms.ComboBox cmbIdioma;
     }
 }
 

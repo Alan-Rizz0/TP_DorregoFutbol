@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Tp_Dorrego_Futbol
 {
-    public partial class Cambiar_Contraseña : Form
+    public partial class Cambiar_Contraseña : Form, IObserver
     {
         public Cambiar_Contraseña()
         {
@@ -22,7 +22,11 @@ namespace Tp_Dorrego_Futbol
 
         private void Cambiar_Contraseña_Load(object sender, EventArgs e)
         {
-
+            LenguajeManager.GetInstance().AgregarObserver(this);
+            if (LenguajeManager.GetInstance().TraduccionesActuales != null)
+            {
+                ActualizarIdioma(LenguajeManager.GetInstance().TraduccionesActuales);
+            }
         }
 
         private void btn_CambiarContraseña_Click(object sender, EventArgs e)
@@ -58,6 +62,25 @@ namespace Tp_Dorrego_Futbol
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void ActualizarIdioma(object traducciones)
+        {
+            var diccTraducciones = (Dictionary<string, string>)traducciones;
+
+            if (diccTraducciones.ContainsKey(this.Name))
+            {
+                this.Text = diccTraducciones[this.Name];
+            }
+
+            foreach (var item in diccTraducciones)
+            {
+                Control[] encontrados = this.Controls.Find(item.Key, true);
+                if (encontrados.Length > 0)
+                {
+                    encontrados[0].Text = item.Value;
+                }
             }
         }
     }

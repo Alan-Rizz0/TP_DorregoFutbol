@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicios_Seguridad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Tp_Dorrego_Futbol
 {
-    public partial class btnCrearUsuario : Form
+    public partial class FormUsuarios : Form, IObserver
     {
-        public btnCrearUsuario()
+        public FormUsuarios()
         {
             InitializeComponent();
         }
@@ -21,10 +22,7 @@ namespace Tp_Dorrego_Futbol
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtbUsername.Text) ||
-                    string.IsNullOrWhiteSpace(txtbNombre.Text) ||
-                    string.IsNullOrWhiteSpace(txtbApellido.Text) ||
-                    string.IsNullOrWhiteSpace(txtbDNI.Text))
+                if (string.IsNullOrWhiteSpace(txtbUsername.Text) || string.IsNullOrWhiteSpace(txtbNombre.Text) || string.IsNullOrWhiteSpace(txtbApellido.Text) || string.IsNullOrWhiteSpace(txtbDNI.Text))
                 {
                     MessageBox.Show("Debe completar todos los campos obligatorios", "Validar Campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -65,9 +63,19 @@ namespace Tp_Dorrego_Futbol
         private void btnCrearUsuario_Load(object sender, EventArgs e)
         {
             ActualizarGrilla();
+            LenguajeManager.GetInstance().AgregarObserver(this);
+
+            if (LenguajeManager.GetInstance().TraduccionesActuales != null)
+            {
+                ActualizarIdioma(LenguajeManager.GetInstance().TraduccionesActuales);
+            }
+            
         }
 
-
+        private void FormUsuarios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LenguajeManager.GetInstance().RemoverObserver(this);
+        }
 
 
         private void ActualizarGrilla()
@@ -98,7 +106,7 @@ namespace Tp_Dorrego_Futbol
                 }
 
                 
-                //agarramos el id de la fila seleccionada
+                //agarro el id de la fila seleccionada
                 int idUsuario = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value); 
                 string username = dataGridView1.CurrentRow.Cells["Username"].Value.ToString();
                 string nombre = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
@@ -181,6 +189,33 @@ namespace Tp_Dorrego_Futbol
             {
                 MessageBox.Show("Error al cambiar el estado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void ActualizarIdioma(object traducciones)
+        {
+            var diccTraducciones = (Dictionary<string, string>)traducciones;
+
+            if (diccTraducciones.ContainsKey(this.Name))
+            {
+                this.Text = diccTraducciones[this.Name];
+            }
+
+            foreach (var item in diccTraducciones)
+            {
+                string nombreControl = item.Key;
+                string textoTraducido = item.Value;
+
+                Control[] encontrados = this.Controls.Find(nombreControl, true);
+                if (encontrados.Length > 0)
+                {
+                    encontrados[0].Text = textoTraducido;
+                }
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

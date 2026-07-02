@@ -1,11 +1,12 @@
-﻿using System;
-using System.IO;
-using iTextSharp.text;
+﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Servicios_Seguridad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Tp_Dorrego_Futbol
 {
-    public partial class Bitacora : Form
+    public partial class Bitacora : Form, IObserver
     {
         public Bitacora()
         {
@@ -262,6 +263,11 @@ namespace Tp_Dorrego_Futbol
 
         private void Bitacora_Load(object sender, EventArgs e)
         {
+            LenguajeManager.GetInstance().AgregarObserver(this);
+            if (LenguajeManager.GetInstance().TraduccionesActuales != null)
+            {
+                ActualizarIdioma(LenguajeManager.GetInstance().TraduccionesActuales);
+            }
             dateFechadesde.ShowCheckBox = true;
             dateFechaHasta.ShowCheckBox = true;
 
@@ -464,6 +470,31 @@ namespace Tp_Dorrego_Futbol
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             ExportarBitacoraAPDF();
+        }
+
+
+        public void ActualizarIdioma(object traducciones)
+        {
+            var diccTraducciones = (Dictionary<string, string>)traducciones;
+
+            if (diccTraducciones.ContainsKey(this.Name))
+            {
+                this.Text = diccTraducciones[this.Name];
+            }
+
+            foreach (var item in diccTraducciones)
+            {
+                Control[] encontrados = this.Controls.Find(item.Key, true);
+                if (encontrados.Length > 0)
+                {
+                    encontrados[0].Text = item.Value;
+                }
+            }
+        }
+
+        private void Bitacora_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LenguajeManager.GetInstance().RemoverObserver(this);
         }
     }
 }

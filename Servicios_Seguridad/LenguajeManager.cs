@@ -9,51 +9,56 @@ namespace Servicios_Seguridad
 {
     public class LenguajeManager
     {
-        private static LenguajeManager instance;
-        private List<IObserver> observers = new List<IObserver>();
+        private static LenguajeManager _instance;
+        private List<IObserver> _observers = new List<IObserver>();
+
+        //propidad xa guardar las traducciones actuales en la memoria
+        public Dictionary<string, string> TraduccionesActuales { get; private set; }
+        public int IdIdiomaActual { get; private set; }
+
+        private LenguajeManager() { }
 
         public static LenguajeManager GetInstance()
         {
-            if (instance == null) instance = new LenguajeManager();
-            return instance;
+            if (_instance == null)
+            {
+                _instance = new LenguajeManager();
+            }
+            return _instance;
         }
 
-        public void AgregarObserver(IObserver iObserver)
+        public void AgregarObserver(IObserver observer)
         {
-            if (!observers.Contains(iObserver))
+            if (!_observers.Contains(observer))
             {
-                observers.Add(iObserver);
+                _observers.Add(observer);
             }
         }
 
-        public void RemoverObserver(IObserver iObserver)
+        public void RemoverObserver(IObserver observer)
         {
-            if (observers.Contains(iObserver))
+            if (_observers.Contains(observer))
             {
-                observers.Remove(iObserver);
+                _observers.Remove(observer);
             }
         }
 
-        public void CambiarIdioma(int IDIdioma, DataTable dtTraducciones)
+        
+        //recibe el id idioma y el diccionario del json, lo guarda y notifica a las patannllas
+        public void CambiarIdioma(int idIdioma, Dictionary<string, string> traducciones)
         {
-            if (SessionManager.GetInstance != null && SessionManager.GetInstance.Usuario != null)
-            {
-                // 2. Le asignamos el nuevo ID de idioma directo al usuario logueado
-                // (Cambiá "IdIdioma" por el nombre exacto que tenga la propiedad en tu UserService)
-                SessionManager.GetInstance.Usuario.IdIdioma = IDIdioma;
-            }
+            IdIdiomaActual = idIdioma;
+            TraduccionesActuales = traducciones;
 
-            // 3. Disparás el loop de notificación a los formularios
-            NotificarTodos(dtTraducciones);
+            NotificarObservers();
         }
 
-        public void Notificar() { }
-
-        private void NotificarTodos(DataTable traducciones)
+        private void NotificarObservers()
         {
-            foreach (var obs in observers)
+            foreach (var observer in _observers)
             {
-                obs.ActualizarIdioma(traducciones);
+                //le paso el diccionario actual a cada formulario abierto para que se actualice solo
+                observer.ActualizarIdioma(TraduccionesActuales);
             }
         }
     }
